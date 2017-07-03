@@ -176,7 +176,23 @@ return longestWordString;
 }
 
 function capitalize(inputString) {
+    
+var lowcase = inputString.toLowerCase();
+    
+var myInputStringAllSplitUp = lowcase.split(' '); 
 
+var mycapital = [];
+
+for (var i=0;i<myInputStringAllSplitUp.length;i++){
+    
+    mycapital[i] = myInputStringAllSplitUp[i].charAt(0).toUpperCase() + myInputStringAllSplitUp[i].slice(1);
+
+
+}
+
+var joinArray = mycapital.join(" ");
+
+return joinArray;
 }
 
 function sumOfNumbers(arrayOfNumbers) {
