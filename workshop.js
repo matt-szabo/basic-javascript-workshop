@@ -197,6 +197,35 @@ return joinArray;
 
 function sumOfNumbers(arrayOfNumbers) {
 
+    var sum = 0;
+    
+    if (arrayOfNumbers === undefined){
+        return undefined;
+        
+    }
+
+for (var a=0; a<arrayOfNumbers.length; a++){
+    
+    if (typeof arrayOfNumbers[a] != 'number')
+    {
+        return undefined;
+    }
+
+}  
+
+
+for (var j=0; j<arrayOfNumbers.length; j++){
+    
+    if (typeof arrayOfNumbers[j] === 'number')
+    {
+        sum += arrayOfNumbers[j];
+    }
+
+}    
+    return sum;
+
+
+
 }
 
 function uniqueElements(array1, array2) {
