@@ -152,6 +152,27 @@ function reverseString(inputString) {
 
 function longestWord(inputString) {
 
+if (inputString === ""){
+    return "";
+}
+
+var myInputStringAllSplitUp = inputString.split(' ');  // creates an array of strings split at the space ' ' character
+
+var longestWord = 0;
+
+for (var i=0;i<myInputStringAllSplitUp.length;i++){
+    
+    var longestWordString = "";
+    
+    if (myInputStringAllSplitUp[i].length >= longestWord){
+        longestWord = myInputStringAllSplitUp[i].length;
+        var longestWordString = myInputStringAllSplitUp[i]; // set this as the new longest word
+    }
+    
+    
+}
+return longestWordString;
+
 }
 
 function capitalize(inputString) {
