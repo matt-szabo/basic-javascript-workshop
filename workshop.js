@@ -225,12 +225,66 @@ for (var j=0; j<arrayOfNumbers.length; j++){
     return sum;
 
 
-
 }
 
-function uniqueElements(array1, array2) {
+function uniqueElements(array1, array2) {//
+    
+    var diff = [];
+    var match = false;
+    
+    
+    
+    
+    
+    for (var x=0;x<array1.length;x++){//
+    
+    match = false;
+    
+            for (var y=0;y<array2.length;y++){
+            
+                 if (array1[x]==array2[y]){//
+                     var match = true;
+                    }//
+                    
+                                  if (typeof array2[y] != 'number')
+    {
+        return undefined;
+    }
+            }
+            
+            if (match==false){//
+                diff.push(array1[x]);
+            }//
+        }//
+        
+    
 
-}
+   for (var c=0;c<array2.length;c++){//
+    
+    match = false;
+    
+            for (var d=0;d<array1.length;d++){//
+            
+                 if (array2[c]==array1[d]){//
+                     var match=true;
+                    }//
+                    
+                     if (typeof array1[d] != 'number')
+    {
+        return undefined;
+    }
+            }//
+            
+            if (match==false){//
+                diff.push(array2[c]);
+            }//
+        }//
+        
+    
+ 
+ 
+return diff;
+}//
 
 function isPalindrome(inputString) {
 
