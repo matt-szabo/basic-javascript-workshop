@@ -290,9 +290,40 @@ function isPalindrome(inputString) {
 
 }
 
+
+
+
 function wrapCharacter(inputString) {
 
+var testString = "";
+
+for(var i=0;i<inputString.length;i+=40){
+    
+    if (inputString.length<40){
+        
+        return inputString;
+    }
+    
+    else if (inputString[i]==" "){
+        testString+=inputString.slice(i+1,i+41)+'\n';
+        ++i;
+    }
+    
+    else {
+    testString+=inputString.slice(i,i+40)+'\n';
 }
+}
+//console.log(testString);
+return testString;
+
+
+}
+
+//wrapCharacter("the increased productivity fostered by a friendly environment and quality tools is essential to meet ever increasing demands for software.");
+
+
+
+
 
 function wrapWord(inputString) {
 
