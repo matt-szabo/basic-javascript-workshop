@@ -9,6 +9,9 @@ function firstLetter(inputString) {
     }
 }
 
+// return firstletter of string ie index position 0 and check for undefined
+
+
 
 function lastLetter(inputString) {
     if (inputString === undefined){
@@ -19,6 +22,9 @@ function lastLetter(inputString) {
         return inputString[inputString.length-1];
     }
 }
+
+//learned arrayname.length is a method and arrayname.length-1 is the last position of a string
+
 
 function letterAtPosition(inputString, position) {
     
@@ -32,6 +38,9 @@ function letterAtPosition(inputString, position) {
 
 }
 
+// here we are passing two arguments to a function... 
+
+
 function addTwoNumbers(num1, num2) {
 
         if (isNaN(num1) || isNaN(num2)){
@@ -42,6 +51,10 @@ function addTwoNumbers(num1, num2) {
             return num1+num2;
         }
 }
+
+//learned how to use isNaN -> returns true if the number is invalid
+
+
 function multiplyTwoNumbers(num1, num2) {
 
   if (isNaN(num1) || isNaN(num2)){
@@ -55,6 +68,9 @@ function multiplyTwoNumbers(num1, num2) {
         }
 
 }
+
+
+
 
 function calculator(operation, num1, num2) {
     
@@ -246,11 +262,11 @@ function uniqueElements(array1, array2) {//
                      var match = true;
                     }//
                     
-                                  if (typeof array2[y] != 'number')
-    {
-        return undefined;
-    }
-            }
+                     if (typeof array2[y] != 'number')
+                        {
+                            return undefined;
+                        }
+                  }
             
             if (match==false){//
                 diff.push(array1[x]);
@@ -287,9 +303,37 @@ return diff;
 }//
 
 function isPalindrome(inputString) {
+    
+    inputString = inputString.toLowerCase().replace(/[^a-z0123456789]+/g,""); 
+    
+    var origSplit = inputString.split("").join("");
+    var flipped = inputString.split("").reverse().join("");
+
+    console.log(flipped[0]);
+    
+    for(var i=0;i<inputString.length;i++){
+        
+        var a = origSplit.charAt(i);
+        var b = flipped.charAt(i);
+       // console.log(a);
+    //    console.log(b);
+        
+          if (a !== b ){
+              
+               return false;
+              
+          }
+        
+    }
+    
+  
+    return true;
+
 
 }
 
+
+isPalindrome("Montreal")
 
 
 
@@ -299,9 +343,9 @@ var testString = "";
 
 for(var i=0;i<inputString.length;i+=40){
     
-    if (inputString.length<40){
+    if (i+40 > inputString.length){
+        testString += inputString.split(i, i+ ((i+40) - inputString.length))
         
-        return inputString;
     }
     
     else if (inputString[i]==" "){
