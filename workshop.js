@@ -309,7 +309,7 @@ function isPalindrome(inputString) {
     var origSplit = inputString.split("").join("");
     var flipped = inputString.split("").reverse().join("");
 
-    console.log(flipped[0]);
+    //console.log(flipped[0]);
     
     for(var i=0;i<inputString.length;i++){
         
@@ -345,7 +345,7 @@ for(var i=0;i<inputString.length;i+=40){
     
     if (i+40 > inputString.length){
         testString += inputString.split(i, i+ ((i+40) - inputString.length))
-        
+        //console.log(testString);
     }
     
     else if (inputString[i]==" "){
@@ -359,19 +359,121 @@ for(var i=0;i<inputString.length;i+=40){
 }
 //console.log(testString);
 return testString;
-
-
 }
+
+
+
+
+function wrapCharacter2(inputString) {
+
+var testString = "";
+
+for(var i=0;i<inputString.length;inputString[i].length+1){
+    
+    if (inputString[i].length > inputString.length){
+        testString += inputString.split(i, i+ ((inputString[i].length) - inputString.length))
+        //console.log(testString);
+    }
+    
+    else if (inputString[i]==" "){
+        testString+=inputString.slice(i+1,i+41)+'\n';
+        ++i;
+    }
+    
+    else {
+    testString+=inputString.slice(i,i+40)+'\n';
+}
+}
+//console.log(testString);
+return testString;
+}
+
 
 //wrapCharacter("the increased productivity fostered by a friendly environment and quality tools is essential to meet ever increasing demands for software.");
 
 
 
-
-
 function wrapWord(inputString) {
+    
+    var newArr=[];
+    var k=0;
+    var one=0;
+    var newString="";
+    var acc=0;
+   // var adder=0;
+    
+                function findWord(inputString){
+                    
+                    for(var h=0;h<inputString.length;h++){
+                        
+                         var car = inputString.charAt(one+h);
+                         
+                         if (one+h > inputString.length){
+                             newArr[k]=inputString.slice(one,one+h);
+                             
+                         } // WORKING FOR LAST WORD
+                        
+                                    if (car == " "){
+                                        
+                                        newArr[k]=inputString.slice(one,one+h);
+                                        console.log(newArr[k]);
+                                        k++;
+                                       
+                                       
+                                       return findWord(one+h+1);
+                                    }
+                                    
+                    }
+                return newArr;
+                }
+    
+    //findWord(one);
+    
+    return findWord(inputString);
+ 
+    
+//     for(var l=0;l<newArr.length;l++){
+        
+//         acc += newArr[l].length;
+        
 
+
+
+//           if(newArr[l].length >= 40){
+//             newString += "\n" + newArr[l] +"\n";
+//             acc=0;
+//         }
+        
+//         else if (acc<40){
+//             newString = newString + newArr[l]+" ";
+//             acc++;
+//         }
+//         else if (acc==40){
+//             newString = newString + newArr[l] +"\n";
+//             acc=0;
+//         }
+//         else if (acc>40){
+//             newString = newString + "\n" + newArr[l];
+//             acc=0;
+//         }
+      
+        
+//     }
+    
+//     newString = newString.slice(0, -1);//reuse this before newline
+    
+//   console.log(newString);
+//     return newString;
+    
+    
+    
 }
+
+
+//wrapWord("the increased productivity fostered by a friendly environment and quality tools is essential to meet ever increasing demands for software.");
+//wrapWord("this string contains a wordthatislargerthanfourtycharactersfortesting the increased productivity fostered by a friendly environment and quality tools");
+//wrapCharacter("this string contains a wordthatislargerthanfourtycharactersfortesting the increased productivity fostered by a friendly environment and quality tools");
+
 
 function bubbleSort(arrayOfNumbers) {
 
